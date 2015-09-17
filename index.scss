@@ -1,3 +1,10 @@
+@mixin transition($string: $transition--default) {
+  -webkit-transition: $string;
+  -moz-transition: $string;
+  -o-transition: $string;
+  transition: $string;
+}
+
 .video-js .vjs-dock {
   position: absolute;
   top: 0;
@@ -48,4 +55,10 @@
   background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(77,77,77,0) 30%, rgba(255,255,255,0) 100%);
   /* IE6-9 */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
+}
+
+.vjs-playing.vjs-user-inactive .vjs-dock {
+  opacity: 0;
+
+  @include transition(opacity 1s);
 }
