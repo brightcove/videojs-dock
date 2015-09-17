@@ -7,9 +7,12 @@ export class Title extends Component {
   }
 
   createEl() {
-    return super.createEl('h1', {
-      className: 'vjs-dock-title',
-      innerHTML: this.options_.title
+    return super.createEl('div', {
+      className: 'vjs-dock-text',
+      innerHTML: `
+        <h1 class='vjs-dock-title'>${this.options_.title}</h1>
+        <h2 class='vjs-dock-description'>${this.options_.description || ''}</h2>
+      `
     });
   }
 };
@@ -51,7 +54,8 @@ videojs.registerComponent('Dock', Dock);
 videojs.plugin('dock', function(options) {
   let settings = {
     title: {
-      title: options.title
+      title: options.title,
+      description: options.description
     }
   };
   let dock = this.addChild('dock', settings);
