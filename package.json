@@ -1,0 +1,69 @@
+{
+  "name": "videojs-dock",
+  "version": "0.0.0",
+  "description": "Dock plugin for videojs",
+  "main": "index.js",
+  "scripts": {
+    "sass": "mkdir -p dist/ && node-sass index.scss dist/bundle.css",
+    "watch-sass": "mkdir -p dist/ && node-sass -w index.scss dist/bundle.css",
+    "build": "npm run build-dist && sass",
+    "watch": "npm run watch-dist & npm run watch-sass & wait",
+    "watchall": "npm run watch-dist & npm run watch-sass & npm run watch-tests & wait",
+    "buildall": "npm run build-dist && npm run build-tests",
+    "build-dist": "mkdir -p dist/ && browserify . -s videojs-dock -o dist/bundle.js && browserify . -s videojs-dock -p deumdify > dist/global.js",
+    "watch-dist": "mkdir -p dist/ && watchify . -s videojs-dock -v -d -o dist/bundle.js",
+    "build-tests": "mkdir -p dist/ && browserify test/karma-qunit-shim.js test/*-test.js -u test/karma.conf.js -s videojs-dock -d -o dist/tests.js",
+    "watch-tests": "mkdir -p dist/ && watchify test/karma-qunit-shim.js test/*-test.js -u test/karma.conf.js -s videojs-dock -v -d -o dist/tests.js",
+    "prepublish": "npm run build",
+    "test": "jshint src/**.js test/**.js index.js && npm run build-tests && karma start test/karma.conf.js --single-run",
+    "test-watch": "npm run watch-tests & karma start test/karma.conf.js --auto-watch & wait",
+    "jshint": "jshint src/**.js test/**.js"
+  },
+  "keywords": [
+    "videojs-plugin",
+    "dock",
+    "videojs"
+  ],
+  "author": "Gary Katsevman <me@gkatsev.com>",
+  "license": "Apache 2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brightcove/videojs-dock"
+  },
+  "files": [
+    "dist/",
+    "src/",
+    "index.js"
+  ],
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^9.0.3",
+    "browserify-shim": "^3.8.3",
+    "deumdify": "^1.1.0",
+    "doctoc": "^0.15.0",
+    "es5-shim": "^4.1.0",
+    "jshint": "^2.6.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-cli": "0.0.4",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-qunit": "^0.1.4",
+    "karma-safari-launcher": "^0.1.1",
+    "node-sass": "^3.3.2",
+    "node.extend": "^1.1.3",
+    "qunit": "^0.7.5",
+    "qunitjs": "^1.17.1",
+    "video.js": "^5.0.0-rc.90",
+    "watchify": "^2.4.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "video.js": "global:videojs"
+  }
+}

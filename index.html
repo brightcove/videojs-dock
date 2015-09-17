@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+      document.createElement('video');
+      (function() {
+        if (!Event.prototype.preventDefault) {
+          Event.prototype.preventDefault=function() {
+            this.returnValue=false;
+          };
+        }
+        if (!Event.prototype.stopPropagation) {
+          Event.prototype.stopPropagation=function() {
+            this.cancelBubble=true;
+          };
+        }
+        if (!Element.prototype.addEventListener) {
+          var eventListeners=[];
+
+          var addEventListener=function(type,listener /*, useCapture (will be ignored) */) {
+            var self=this;
+            var wrapper=function(e) {
+              e.target=e.srcElement;
+              e.currentTarget=self;
+              if (listener.handleEvent) {
+                listener.handleEvent(e);
+              } else {
+                listener.call(self,e);
+              }
+            };
+            if (type=="DOMContentLoaded") {
+              var wrapper2=function(e) {
+                if (document.readyState=="complete") {
+                  wrapper(e);
+                }
+              };
+              document.attachEvent("onreadystatechange",wrapper2);
+              eventListeners.push({object:this,type:type,listener:listener,wrapper:wrapper2});
+
+              if (document.readyState=="complete") {
+                var e=new Event();
+                e.srcElement=window;
+                wrapper2(e);
+              }
+            } else {
+              this.attachEvent("on"+type,wrapper);
+              eventListeners.push({object:this,type:type,listener:listener,wrapper:wrapper});
+            }
+          };
+          var removeEventListener=function(type,listener /*, useCapture (will be ignored) */) {
+            var counter=0;
+            while (counter<eventListeners.length) {
+              var eventListener=eventListeners[counter];
+              if (eventListener.object==this && eventListener.type==type && eventListener.listener==listener) {
+                if (type=="DOMContentLoaded") {
+                  this.detachEvent("onreadystatechange",eventListener.wrapper);
+                } else {
+                  this.detachEvent("on"+type,eventListener.wrapper);
+                }
+                eventListeners.splice(counter, 1);
+                break;
+              }
+              ++counter;
+            }
+          };
+          Element.prototype.addEventListener=addEventListener;
+          Element.prototype.removeEventListener=removeEventListener;
+          if (HTMLDocument) {
+            HTMLDocument.prototype.addEventListener=addEventListener;
+            HTMLDocument.prototype.removeEventListener=removeEventListener;
+          }
+          if (Window) {
+            Window.prototype.addEventListener=addEventListener;
+            Window.prototype.removeEventListener=removeEventListener;
+          }
+        }
+      })();
+    </script>
+    <link rel='stylesheet' href='node_modules/video.js/dist/video-js.css'></script>
+    <script src='node_modules/video.js/dist/video.js'></script>
+    <script src="node_modules/es5-shim/es5-shim.js"></script>
+
+    <!-- include the playlist plugin -->
+    <script src='dist/bundle.js'></script>
+    <link rel='stylesheet' href='dist/bundle.css'>
+
+    <style>
+      .video-js {
+        width: 600px;
+        height: 250px;
+      }
+
+      .video-js .vjs-poster {
+        background-color: white;
+        //background-image: inherit !important;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <video class="video-js vjs-big-play-centered" controls width='600' height='250'
+      poster='http://www.videojs.com/img/poster.jpg'
+    >
+      <source src='http://vjs.zencdn.net/v/oceans.mp4' type='video/mp4' >
+    </video>
+
+    <script>
+    var video = document.querySelector('video');
+
+    var player = videojs(video, {
+      inactivityTimeout: 0
+    });
+
+    player.dock({
+      title: 'Bacon ipsum dolor amet ribeye tongue landjaeger swine ball tip chuck filet mignon kevin'
+    });
+
+    </script>
+  </body>
+</html>
