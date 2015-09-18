@@ -110,14 +110,15 @@
     var video = document.querySelector('video');
 
     var player = videojs(video, {
+    }, function() {
+      player.dock({
+        title: 'Bacon ipsum dolor amet ribeye',
+        description: 'Doner shank pork loin sirloin, meatloaf shankle chicken bresaola cow shoulder cupim.'
+      });
+
+      player.shelf.addChild('playToggle');
     });
 
-    player.dock({
-      title: 'Bacon ipsum dolor amet ribeye',
-      description: 'Doner shank pork loin sirloin, meatloaf shankle chicken bresaola cow shoulder cupim.'
-    });
-
-    player.getChild('dock').shelf.addChild('playToggle');
 
     </script>
   </body>
