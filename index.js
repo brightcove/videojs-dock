@@ -25,31 +25,8 @@ export class Shelf extends Component {
   }
 };
 
-
-export class Dock extends Component {
-  constructor(player, options) {
-    super(player, options);
-  }
-
-  createEl() {
-    return super.createEl('div', {
-      className: 'vjs-dock'
-    });
-  }
-
-};
-
-
-Dock.prototype.options_ = {
-  children: [
-    'title',
-    'shelf'
-  ]
-};
-
 videojs.registerComponent('Title', Title);
 videojs.registerComponent('Shelf', Shelf);
-videojs.registerComponent('Dock', Dock);
 
 videojs.plugin('dock', function(options) {
   let settings = {
@@ -58,5 +35,7 @@ videojs.plugin('dock', function(options) {
       description: options.description
     }
   };
-  let dock = this.addChild('dock', settings);
+
+  let title = player.title = this.addChild('title', settings.title);
+  let shelf = player.shelf = this.addChild('shelf', settings);
 });

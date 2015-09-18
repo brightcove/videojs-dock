@@ -5,19 +5,14 @@
   transition: $string;
 }
 
-.video-js .vjs-dock {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30%;
-  padding: 0.5em 1em;
-  pointer-events: none;
-
+.video-js {
   .vjs-dock-text {
     margin: 0;
-    width: 90%;
+    width: 100%;
+    height: 30%;
     float: left;
+    padding: 0 10% 0 1em;
+    position: relative;
   }
 
   .vjs-dock-title,
@@ -29,10 +24,10 @@
 
   .vjs-dock-shelf {
     float: right;
-    width: 6em;
-    height: 6em;
-    margin-right: -0.5em;
     padding: 1.5em;
+    height: 30%;
+    width: 10%;
+    margin-left: -10%;
   }
 
   .vjs-dock-title:after,
@@ -40,23 +35,25 @@
     clear: both;
   }
 
-  // http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\(top\,\%20rgba\(0\,0\,0\,0\.7\)\%200\%\,\%20rgba\(0\,0\,0\,0\.49\)\%2030\%\,\%20rgba\(0\,0\,0\,0\)\%20100\%\)\;'
-  /* Old Browsers */
-  background: rgba(0,0,0,0.8);
-   /* FF3.6+ */
-  background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-  /* Chrome, Safari4+ */
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.8)), color-stop(100%, rgba(255,255,255,0)));
-   /* Chrome10+,Safari5.1+ */
-  background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-   /* Opera 11.10+ */
-  background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-   /* IE 10+ */
-  background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-  /* W3C */
-  background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-  /* IE6-9 */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
+  .vjs-dock-text {
+    // http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\(top\,\%20rgba\(0\,0\,0\,0\.7\)\%200\%\,\%20rgba\(0\,0\,0\,0\.49\)\%2030\%\,\%20rgba\(0\,0\,0\,0\)\%20100\%\)\;'
+    /* Old Browsers */
+    background: rgba(0,0,0,0.8);
+     /* FF3.6+ */
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+    /* Chrome, Safari4+ */
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.8)), color-stop(100%, rgba(255,255,255,0)));
+     /* Chrome10+,Safari5.1+ */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+     /* Opera 11.10+ */
+    background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+     /* IE 10+ */
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+    /* W3C */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+    /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=0 );
+  }
 }
 
 .vjs-playing.vjs-user-inactive .vjs-dock {
