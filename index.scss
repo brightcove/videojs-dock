@@ -24,7 +24,6 @@
 
   .vjs-dock-shelf {
     float: right;
-    padding: 1.5em;
     height: 30%;
     width: 10%;
     margin-left: -10%;
@@ -56,7 +55,8 @@
   }
 }
 
-.vjs-playing.vjs-user-inactive .vjs-dock {
+.vjs-playing.vjs-user-inactive .vjs-dock-text,
+.vjs-playing.vjs-user-inactive .vjs-dock-shelf {
   opacity: 0;
 
   @include transition(opacity 1s);
