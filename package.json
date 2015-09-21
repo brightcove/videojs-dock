@@ -6,7 +6,7 @@
   "scripts": {
     "sass": "mkdir -p dist/ && node-sass index.scss dist/bundle.css",
     "watch-sass": "mkdir -p dist/ && node-sass -w index.scss dist/bundle.css",
-    "build": "npm run build-dist && sass",
+    "build": "npm run build-dist && npm run sass",
     "watch": "npm run watch-dist & npm run watch-sass & wait",
     "watchall": "npm run watch-dist & npm run watch-sass & npm run watch-tests & wait",
     "buildall": "npm run build-dist && npm run build-tests",
@@ -16,6 +16,7 @@
     "build-tests": "mkdir -p dist/ && browserify test/karma-qunit-shim.js test/*-test.js -u test/karma.conf.js -s videojs-dock -d -o dist/tests.js",
     "watch-tests": "mkdir -p dist/ && watchify test/karma-qunit-shim.js test/*-test.js -u test/karma.conf.js -s videojs-dock -v -d -o dist/tests.js",
     "test": "jshint src/**.js test/**.js index.js && npm run build-tests && karma start test/karma.conf.js --single-run",
+    "prepublish": "npm run build",
     "test-watch": "npm run watch-tests & karma start test/karma.conf.js --auto-watch & wait",
     "jshint": "jshint src/**.js test/**.js"
   },
