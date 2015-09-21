@@ -66,5 +66,8 @@
   },
   "browserify-shim": {
     "video.js": "global:videojs"
+  },
+  "dependencies": {
+    "object.assign": "^4.0.1"
   }
 }

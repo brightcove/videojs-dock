@@ -1,5 +1,6 @@
 let videojs = require('video.js');
 let Component = videojs.getComponent('Component');
+let assign = require('object.assign/polyfill')();
 
 export class Title extends Component {
   constructor(player, options) {
@@ -29,12 +30,18 @@ videojs.registerComponent('Title', Title);
 videojs.registerComponent('Shelf', Shelf);
 
 videojs.plugin('dock', function(options) {
-  let settings = {
+  let opts = options || {};
+  let settings = assign({
     title: {
-      title: options.title,
-      description: options.description
+      title: '',
+      description: ''
     }
-  };
+  }, {
+    title: {
+      title: opts.title || '',
+      description: opts.description || ''
+    }
+  });
 
   let title = player.title = this.addChild('title', settings.title);
   let shelf = player.shelf = this.addChild('shelf', settings);
