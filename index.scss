@@ -59,3 +59,8 @@
 
   @include transition(opacity 1s);
 }
+
+.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-text,
+.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-shelf {
+  display: none;
+}
