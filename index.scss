@@ -6,6 +6,11 @@
 }
 
 .video-js {
+  .vjs-dock-text,
+  .vjs-dock-shelf {
+    pointer-events: none;
+  }
+
   .vjs-dock-text {
     margin: 0;
     width: 100%;
