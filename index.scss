@@ -32,6 +32,10 @@
     height: 30%;
     width: 10%;
     margin-left: -10%;
+
+    * {
+      pointer-events: auto;
+    }
   }
 
   .vjs-dock-title:after,
