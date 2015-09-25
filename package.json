@@ -1,6 +1,6 @@
 {
   "name": "videojs-dock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dock plugin for videojs",
   "main": "index.js",
   "scripts": {
