@@ -6,66 +6,72 @@
 }
 
 .video-js {
+  $vjs-font-size: 10;
+  $font-size: 12;
+  $shelf-width: 25%;
+
+  $modal-padding-tb: 20px;
+  $modal-padding-lr: 24px;
+
   .vjs-dock-text,
   .vjs-dock-shelf {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: #{$font-size / $vjs-font-size}em; // eq. 12px
+    height: 50%;
     pointer-events: none;
+    position: absolute;
+    top: 0;
   }
 
   .vjs-dock-text {
+    left: 0;
     margin: 0;
     width: 100%;
-    height: 30%;
-    float: left;
-    padding: 0 10% 0 1em;
-    position: relative;
-  }
 
-  .vjs-dock-title,
-  .vjs-dock-description {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // Adopt some core styles from .vjs-modal-dialog from video.js
+    background: rgba(0, 0, 0, 0.8);
+    background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.8) 25%, rgba(255, 255, 255, 0));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 25%, rgba(255, 255, 255, 0));
+    padding: $modal-padding-tb $shelf-width $modal-padding-tb $modal-padding-lr;
   }
 
   .vjs-dock-shelf {
-    float: right;
-    height: 30%;
-    width: 10%;
-    margin-left: -10%;
+    padding: $modal-padding-tb $modal-padding-lr;
+    right: 0;
+    text-align: right;
+    width: $shelf-width;
 
     * {
       pointer-events: auto;
     }
   }
 
-  .vjs-dock-title:after,
-  .vjs-dock-shelf:after {
-    clear: both;
+  .vjs-dock-title,
+  .vjs-dock-description {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  .vjs-dock-text {
-    // http://www.cssmatic.com/gradient-generator#'\-moz\-linear\-gradient\(top\,\%20rgba\(0\,0\,0\,0\.7\)\%200\%\,\%20rgba\(0\,0\,0\,0\.49\)\%2030\%\,\%20rgba\(0\,0\,0\,0\)\%20100\%\)\;'
-    /* Old Browsers */
-    background: rgba(0,0,0,0.8);
-     /* FF3.6+ */
-    background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-    /* Chrome, Safari4+ */
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0.8)), color-stop(100%, rgba(255,255,255,0)));
-     /* Chrome10+,Safari5.1+ */
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-     /* Opera 11.10+ */
-    background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-     /* IE 10+ */
-    background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
-    /* W3C */
-    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(255,255,255,0) 100%);
+  .vjs-dock-title {
+    font-size: 1.25em; // 15px
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.333; // 20px
+    margin-bottom: 0.333em; // 5px
+  }
+
+  .vjs-dock-description {
+    font-size: 1em; // 12px
+    font-weight: normal;
+    line-height: 1.5; // 18px
   }
 }
 
 .vjs-playing.vjs-user-inactive .vjs-dock-text,
 .vjs-playing.vjs-user-inactive .vjs-dock-shelf {
   opacity: 0;
-
   @include transition(opacity 1s);
 }
 

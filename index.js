@@ -39,6 +39,7 @@ videojs.registerComponent('Title', Title);
 videojs.registerComponent('Shelf', Shelf);
 
 videojs.plugin('dock', function(options) {
+  let player = this;
   let opts = options || {};
   let settings = assign({
     title: {
@@ -54,7 +55,7 @@ videojs.plugin('dock', function(options) {
 
   let title = player.title;
   let shelf = player.shelf;
- 
+
   if (!title) {
     title = player.title = this.addChild('title', settings.title);
   } else {
