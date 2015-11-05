@@ -2,7 +2,7 @@
   "name": "videojs-dock",
   "version": "1.0.3",
   "description": "Dock plugin for videojs",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "sass": "mkdir -p dist/ && node-sass index.scss dist/bundle.css",
     "watch-sass": "mkdir -p dist/ && node-sass -w index.scss dist/bundle.css",
@@ -16,7 +16,10 @@
     "build-tests": "mkdir -p dist/ && browserify test/karma-qunit-shim.js test/*-test.js -u test/karma.conf.js -s videojs-dock -d -o dist/tests.js",
     "watch-tests": "mkdir -p dist/ && watchify test/karma-qunit-shim.js test/*-test.js -u test/karma.conf.js -s videojs-dock -v -d -o dist/tests.js",
     "test": "jshint src/**.js test/**.js index.js && npm run build-tests && karma start test/karma.conf.js --single-run",
-    "prepublish": "npm run build",
+    "predist": "npm run babel",
+    "dist": "mkdir -p dist/ && browserify -t browserify-shim . -s videojs-dock -o dist/bundle.js",
+    "babel": "babel src -d lib",
+    "prepublish": "npm run dist",
     "test-watch": "npm run watch-tests & karma start test/karma.conf.js --auto-watch & wait",
     "jshint": "jshint src/**.js test/**.js"
   },
@@ -37,6 +40,7 @@
     "index.js"
   ],
   "devDependencies": {
+    "babel": "^5.8.29",
     "babelify": "^6.3.0",
     "browserify": "^11.1.0",
     "browserify-shim": "^3.8.10",
@@ -57,12 +61,6 @@
     "qunitjs": "^1.17.1",
     "video.js": "^5.0.0-rc.90",
     "watchify": "^3.4.0"
-  },
-  "browserify": {
-    "transform": [
-      "babelify",
-      "browserify-shim"
-    ]
   },
   "browserify-shim": {
     "video.js": "global:videojs"
