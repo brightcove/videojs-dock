@@ -19,7 +19,7 @@
     "predist": "npm run babel",
     "dist": "mkdir -p dist/ && browserify -t browserify-shim . -s videojs-dock -o dist/bundle.js",
     "babel": "babel src -d lib",
-    "prepublish": "npm run dist",
+    "prepublish": "npm run dist && npm run sass",
     "test-watch": "npm run watch-tests & karma start test/karma.conf.js --auto-watch & wait",
     "jshint": "jshint src/**.js test/**.js"
   },
