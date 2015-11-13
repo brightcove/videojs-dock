@@ -56,10 +56,6 @@ videojs.plugin('dock', function(options) {
   let title = player.title;
   let shelf = player.shelf;
 
-  if (!settings.title.title && !settings.title.description) {
-    return;
-  }
-
   if (!title) {
     title = player.title = this.addChild('title', settings.title);
   } else {
@@ -68,4 +64,13 @@ videojs.plugin('dock', function(options) {
   if (!shelf) {
     shelf = player.shelf = this.addChild('shelf', settings);
   }
+
+  player.on(title, 'dispose', function(){
+    player.title = null;
+  });
+
+  player.on(shelf, 'dispose', function(){
+    player.shelf = null;
+  });
+
 });
