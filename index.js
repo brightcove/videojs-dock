@@ -56,6 +56,10 @@ videojs.plugin('dock', function(options) {
   let title = player.title;
   let shelf = player.shelf;
 
+  if (!settings.title.title || !settings.title.description) {
+    return;
+  }
+
   if (!title) {
     title = player.title = this.addChild('title', settings.title);
   } else {
