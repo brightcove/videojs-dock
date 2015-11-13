@@ -56,7 +56,7 @@ videojs.plugin('dock', function(options) {
   let title = player.title;
   let shelf = player.shelf;
 
-  if (!settings.title.title || !settings.title.description) {
+  if (!settings.title.title && !settings.title.description) {
     return;
   }
 
