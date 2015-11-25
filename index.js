@@ -65,11 +65,11 @@ videojs.plugin('dock', function(options) {
     shelf = player.shelf = this.addChild('shelf', settings);
   }
 
-  player.on(title, 'dispose', function(){
+  player.one(title, 'dispose', function(){
     player.title = null;
   });
 
-  player.on(shelf, 'dispose', function(){
+  player.one(shelf, 'dispose', function(){
     player.shelf = null;
   });
 
