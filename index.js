@@ -64,4 +64,13 @@ videojs.plugin('dock', function(options) {
   if (!shelf) {
     shelf = player.shelf = this.addChild('shelf', settings);
   }
+
+  player.one(title, 'dispose', function(){
+    player.title = null;
+  });
+
+  player.one(shelf, 'dispose', function(){
+    player.shelf = null;
+  });
+
 });
