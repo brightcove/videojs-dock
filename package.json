@@ -68,6 +68,6 @@
     "video.js": "global:videojs"
   },
   "dependencies": {
-    "object.assign": "^4.0.1"
+    "object.assign": "^4.0.3"
   }
 }
