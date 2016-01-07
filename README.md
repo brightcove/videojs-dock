@@ -1,18 +1,40 @@
-# Dock plugin for videojs
+# videojs-dock
 
-### Building
-You should either include this project directly in your browserify or you can build it by running
-`npm run build`
+A dock for videojs
 
-### Running tests
-You can run a single test run, which includes running jshint as well as karma by running
-```sh
-npm test
-```
-For development, consider running
-```sh
-npm run test-watch
-```
-Which will re-run the karma tests as you save your files to let you know your test results automatically.
+### Table of Contents
 
-## [LICENSE](https://github.com/brightcove/videojs-dock/blob/master/LICENSE.md)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Getting Started](#getting-started)
+  - [Running Tests](#running-tests)
+  - [Tag and Release](#tag-and-release)
+- [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+## Getting Started
+
+1. Clone this repository!
+1. Install dependencies: `npm install`
+1. Run a development server: `npm start`
+
+That's it! Refer to the [video.js plugin standards](https://github.com/videojs/generator-videojs-plugin/docs/standards.md) for more detail.
+
+### Running Tests
+
+- In all available and supported browsers: `npm test`
+- In a specific browser: `npm run test:chrome`, `npm run test:firefox`, etc.
+- While development server is running, navigate to [`http://localhost:9999/test/`](http://localhost:9999/test/) (_note:_ port may vary, check console output)
+
+### Tag and Release
+
+1. Make sure everything is committed.
+1. `npm version *` where `*` is `major`, `minor`, `patch`, etc. [Read more about versioning.](https://github.com/videojs/generator-videojs-plugin/docs/standards.md#versioning)
+1. `npm publish`
+
+## License
+
+Apache-2.0. Copyright (c) Brightcove, Inc.
