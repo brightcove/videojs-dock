@@ -1,0 +1,7 @@
+/**
+ * videojs-dock
+ * @version 1.2.1
+ * @copyright 2016 Gary Katsevman <me@gkatsev.com>
+ * @license Apache-2.0
+ */
+.video-js .vjs-dock-text,.video-js .vjs-dock-shelf{font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;font-size:1.2em;height:50%;pointer-events:none;position:absolute;top:0}.video-js .vjs-dock-text{left:0;margin:0;width:100%;background:rgba(0,0,0,0.8);background:-webkit-linear-gradient(-90deg, rgba(0,0,0,0.8) 25%, transparent 100%);background:linear-gradient(180deg, rgba(0,0,0,0.8) 25%, transparent 100%);padding:20px 25% 20px 24px}.video-js .vjs-dock-shelf{padding:20px 24px;right:0;text-align:right;width:25%}.video-js .vjs-dock-shelf *{pointer-events:auto}.video-js .vjs-dock-title,.video-js .vjs-dock-description{margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.video-js .vjs-dock-title{font-size:1.25em;font-weight:bold;letter-spacing:1px;line-height:1.333;margin-bottom:0.333em}.video-js .vjs-dock-description{font-size:1em;font-weight:normal;line-height:1.5}.vjs-playing.vjs-user-inactive .vjs-dock-text,.vjs-playing.vjs-user-inactive .vjs-dock-shelf{opacity:0;-webkit-transition:opacity 1s;-moz-transition:opacity 1s;-o-transition:opacity 1s;transition:opacity 1s}.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-text,.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-shelf{display:none}
