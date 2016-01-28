@@ -1,3 +1,9 @@
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
 @mixin transition($string: $transition--default) {
   -webkit-transition: $string;
   -moz-transition: $string;
@@ -6,17 +12,16 @@
 }
 
 .video-js {
-  $vjs-font-size: 10;
-  $font-size: 12;
   $shelf-width: 25%;
 
-  $modal-padding-tb: 20px;
-  $modal-padding-lr: 24px;
+  // because the font-size is 18px, set padding to 1em or 18px
+  $modal-padding-tb: 1em;
+  $modal-padding-lr: 1em;
 
   .vjs-dock-text,
   .vjs-dock-shelf {
+    font-size: em(18, 10);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: #{$font-size / $vjs-font-size}em; // eq. 12px
     height: 50%;
     pointer-events: none;
     position: absolute;
@@ -55,7 +60,6 @@
   }
 
   .vjs-dock-title {
-    font-size: 1.25em; // 15px
     font-weight: bold;
     letter-spacing: 1px;
     line-height: 1.333; // 20px
@@ -63,7 +67,6 @@
   }
 
   .vjs-dock-description {
-    font-size: 1em; // 12px
     font-weight: normal;
     line-height: 1.5; // 18px
   }
