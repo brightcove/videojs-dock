@@ -1,4 +1,5 @@
 import videojs from 'video.js';
+import guid from './guid.js';
 
 let Component = videojs.getComponent('Component');
 
@@ -8,18 +9,37 @@ let Component = videojs.getComponent('Component');
 export class Title extends Component {
   constructor(player, options) {
     super(player, options);
-    this.title = this.el_.querySelector('.vjs-dock-title');
-    this.description = this.el_.querySelector('.vjs-dock-description');
+
+    let tech = player.$('.vjs-tech');
+    tech.setAttribute('aria-labelledby', this.title.id);
+    tech.setAttribute('aria-describedby', this.description.id);
   }
 
   createEl() {
-    return super.createEl('div', {
-      className: 'vjs-dock-text',
-      innerHTML: `
-        <h1 class='vjs-dock-title'>${this.options_.title}</h1>
-        <h2 class='vjs-dock-description'>${this.options_.description || ''}</h2>
-      `
+    let title = videojs.createEl('div', {
+      className: 'vjs-dock-title',
+      title: this.options_.title,
+      innerHTML: this.options_.title
+    }, {
+      id: `vjs-dock-title-${guid()}`
     });
+    let desc = videojs.createEl('div', {
+      className: 'vjs-dock-description',
+      title: this.options_.description,
+      innerHTML: this.options_.description
+    }, {
+      id: `vjs-dock-description-${guid()}`
+    });
+    let el = super.createEl('div', {
+      className: 'vjs-dock-text'
+    });
+ 
+    this.title = title;
+    this.description = desc;
+
+    el.appendChild(title);
+    el.appendChild(desc);
+    return el;
   }
 
   update(title, description) {
