@@ -113,7 +113,7 @@
     "qunit": "^0.7.5",
     "qunitjs": "^1.17.1",
     "serve-static": "^1.10.0",
-    "sinon": "^1.0.0",
+    "sinon": "2.0.0-pre",
     "uglify-js": "^2.5.0",
     "videojs-standard": "^4.0.0",
     "watchify": "^3.4.0"
