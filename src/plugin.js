@@ -11,6 +11,7 @@ export class Title extends Component {
     super(player, options);
 
     let tech = player.$('.vjs-tech');
+
     tech.setAttribute('aria-labelledby', this.title.id);
     tech.setAttribute('aria-describedby', this.description.id);
   }
@@ -33,7 +34,7 @@ export class Title extends Component {
     let el = super.createEl('div', {
       className: 'vjs-dock-text'
     });
- 
+
     this.title = title;
     this.description = desc;
 

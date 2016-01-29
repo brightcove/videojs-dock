@@ -1,4 +1,6 @@
 let guid = 1;
-export default function newGuid () {
+let newGuid = function newGuid() {
   return guid++;
 };
+
+export default newGuid;
