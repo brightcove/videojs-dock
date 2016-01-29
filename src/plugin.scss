@@ -14,15 +14,10 @@ $browser-context: 16;
 .video-js {
   $shelf-width: 25%;
 
-  // because the font-size is 18px, set padding to 1em or 18px
-  $modal-padding-tb: 1em;
-  $modal-padding-lr: 1em;
-
   .vjs-dock-text,
   .vjs-dock-shelf {
     font-size: em(18, 10);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    height: 50%;
     pointer-events: none;
     position: absolute;
     top: 0;
@@ -35,13 +30,17 @@ $browser-context: 16;
 
     // Adopt some core styles from .vjs-modal-dialog from video.js
     background: rgba(0, 0, 0, 0.8);
-    background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0) 100%);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 25%, rgba(0, 0, 0, 0) 100%);
-    padding: $modal-padding-tb $shelf-width $modal-padding-tb $modal-padding-lr;
+    background: -webkit-linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 30%, rgba(0,0,0,.7) 70%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 30%, rgba(0,0,0,.7) 70%, rgba(0,0,0,0) 100%);
+    padding: 1em $shelf-width 2em 1em;
+  }
+
+  &.vjs-no-flex .vjs-dock-text {
+    padding-bottom: 1em;
   }
 
   .vjs-dock-shelf {
-    padding: $modal-padding-tb $modal-padding-lr;
+    padding: 1em 1em;
     right: 0;
     text-align: right;
     width: $shelf-width;
