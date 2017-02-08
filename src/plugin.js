@@ -1,6 +1,8 @@
 import videojs from 'video.js';
 import guid from './guid.js';
 
+const dom = videojs.dom || videojs;
+const registerPlugin = videojs.registerPlugin || videojs.plugin;
 let Component = videojs.getComponent('Component');
 
 /**
@@ -17,14 +19,14 @@ export class Title extends Component {
   }
 
   createEl() {
-    let title = videojs.createEl('div', {
+    let title = dom.createEl('div', {
       className: 'vjs-dock-title',
       title: this.options_.title,
       innerHTML: this.options_.title
     }, {
       id: `vjs-dock-title-${guid()}`
     });
-    let desc = videojs.createEl('div', {
+    let desc = dom.createEl('div', {
       className: 'vjs-dock-description',
       title: this.options_.description,
       innerHTML: this.options_.description
@@ -110,6 +112,6 @@ const dock = function(options) {
 };
 
 // Register the plugin with video.js.
-videojs.plugin('dock', dock);
+registerPlugin('dock', dock);
 
 export default dock;
