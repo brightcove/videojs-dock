@@ -41,8 +41,8 @@ QUnit.test('registers itself with video.js', function(assert) {
   assert.expect(2);
 
   assert.strictEqual(
-    Player.prototype.dock,
-    plugin,
+    typeof Player.prototype.dock,
+    'function',
     'videojs-dock plugin was registered'
   );
 
