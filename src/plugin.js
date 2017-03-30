@@ -93,13 +93,16 @@ const dock = function(options) {
 
   this.addClass('vjs-dock');
 
+  const bpbIndex = this.children().indexOf(this.getChild('bigPlayButton'));
+  const index = bpbIndex > 0 ? bpbIndex - 1 : null;
+
   if (!title) {
-    title = this.title = this.addChild('title', settings.title);
+    title = this.title = this.addChild('title', settings.title, index);
   } else {
     title.update(settings.title.title, settings.title.description);
   }
   if (!shelf) {
-    shelf = this.shelf = this.addChild('shelf', settings);
+    shelf = this.shelf = this.addChild('shelf', settings, index);
   }
 
   this.one(title, 'dispose', function() {
