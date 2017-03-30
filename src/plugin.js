@@ -93,7 +93,7 @@ const dock = function(options) {
 
   this.addClass('vjs-dock');
 
-  const bpbIndex = player.children().indexOf(player.getChild('bigPlayButton'));
+  const bpbIndex = this.children().indexOf(this.getChild('bigPlayButton'));
   const index = bpbIndex > 0 ? bpbIndex - 1 : null;
 
   if (!title) {
