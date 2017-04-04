@@ -96,13 +96,16 @@ const dock = function(options) {
   const bpbIndex = this.children().indexOf(this.getChild('bigPlayButton'));
   const index = bpbIndex > 0 ? bpbIndex - 1 : null;
 
+  // add shelf first so `title` is added before it if available
+  // because shelf will now be at index
+  if (!shelf) {
+    shelf = this.shelf = this.addChild('shelf', settings, index);
+  }
+
   if (!title) {
     title = this.title = this.addChild('title', settings.title, index);
   } else {
     title.update(settings.title.title, settings.title.description);
-  }
-  if (!shelf) {
-    shelf = this.shelf = this.addChild('shelf', settings, index);
   }
 
   this.one(title, 'dispose', function() {
