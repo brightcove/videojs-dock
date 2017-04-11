@@ -1,9 +1,10 @@
 import videojs from 'video.js';
 import guid from './guid.js';
+import {document} from 'global';
 
 const dom = videojs.dom || videojs;
 const registerPlugin = videojs.registerPlugin || videojs.plugin;
-let Component = videojs.getComponent('Component');
+const Component = videojs.getComponent('Component');
 
 /**
  * Title Component
@@ -12,28 +13,28 @@ export class Title extends Component {
   constructor(player, options) {
     super(player, options);
 
-    let tech = player.$('.vjs-tech');
+    const tech = player.$('.vjs-tech');
 
     tech.setAttribute('aria-labelledby', this.title.id);
     tech.setAttribute('aria-describedby', this.description.id);
   }
 
   createEl() {
-    let title = dom.createEl('div', {
+    const title = dom.createEl('div', {
       className: 'vjs-dock-title',
       title: this.options_.title,
       innerHTML: this.options_.title
     }, {
       id: `vjs-dock-title-${guid()}`
     });
-    let desc = dom.createEl('div', {
+    const desc = dom.createEl('div', {
       className: 'vjs-dock-description',
       title: this.options_.description,
       innerHTML: this.options_.description
     }, {
       id: `vjs-dock-description-${guid()}`
     });
-    let el = super.createEl('div', {
+    const el = super.createEl('div', {
       className: 'vjs-dock-text'
     });
 
@@ -80,8 +81,8 @@ videojs.registerComponent('Shelf', Shelf);
  *           An object of options left to the plugin author to define.
  */
 const dock = function(options) {
-  let opts = options || {};
-  let settings = {
+  const opts = options || {};
+  const settings = {
     title: {
       title: opts.title || '',
       description: opts.description || ''
