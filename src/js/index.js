@@ -7,9 +7,21 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
 const Component = videojs.getComponent('Component');
 
 /**
- * Title Component
+ * A title for the dock
+ *
+ * @extends Component
  */
 export class Title extends Component {
+
+  /**
+   * Creates an instance of this class.
+   *
+   * @param {Player} player
+   *        The `Player` that this class should be attached to.
+   *
+   * @param {Object} [options]
+   *        The key/value store of player options.
+   */
   constructor(player, options) {
     super(player, options);
 
@@ -19,6 +31,12 @@ export class Title extends Component {
     tech.setAttribute('aria-describedby', this.description.id);
   }
 
+  /**
+   * Create the `Component`s DOM element.
+   *
+   * @return {Element}
+   *         The element that gets created.
+   */
   createEl() {
     const title = dom.createEl('div', {
       className: 'vjs-dock-title',
@@ -46,6 +64,15 @@ export class Title extends Component {
     return el;
   }
 
+  /**
+   * update the title and the description for the title
+   *
+   * @param {string} title
+   *        The title
+   *
+   * @param {string} description
+   *        The description
+   */
   update(title, description) {
     this.title.innerHTML = '';
     this.description.innerHTML = '';
@@ -55,9 +82,18 @@ export class Title extends Component {
 }
 
 /**
- * Shelf Component
+ * A shelf for the dock
+ *
+ * @extends Component
  */
 export class Shelf extends Component {
+
+  /**
+   * Create the `Component`s DOM element.
+   *
+   * @return {Element}
+   *         The element that gets created.
+   */
   createEl() {
     return super.createEl('div', {
       className: 'vjs-dock-shelf'
