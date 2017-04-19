@@ -20,7 +20,6 @@
   ],
   "author": "Gary Katsevman <me@gkatsev.com>",
   "license": "Apache-2.0",
-  "browserify-shim": "node_modules/videojs-spellbook/config/shim.config.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/brightcove/videojs-dock"
