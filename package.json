@@ -2,16 +2,18 @@
   "name": "videojs-dock",
   "version": "2.1.1",
   "description": "Dock plugin for videojs",
-  "main": "dist/es5/index.js",
+  "main": "build/es5/index.js",
   "scripts": {
     "build": "sb-build",
     "clean": "sb-clean",
     "lint": "sb-lint",
     "start": "sb-start",
     "test": "sb-test",
+    "watch": "sb-watch",
     "preversion": "npm test",
     "postversion": "sb-release",
-    "prepush": "npm run lint"
+    "prepush": "npm run lint",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "dock",
@@ -28,10 +30,9 @@
     "CHANGELOG.md",
     "CONTRIBUTING.md",
     "README.md",
-    "dist/browser",
-    "dist/docs",
-    "dist/es5",
-    "dist/lang",
+    "build/docs",
+    "build/es5",
+    "dist/",
     "docs/",
     "index.html",
     "src/"
@@ -43,14 +44,14 @@
   "devDependencies": {
     "es5-shim": "^4.1.0",
     "husky": "^0.13.1",
-    "videojs-spellbook": "^3.1.0"
+    "videojs-spellbook": "^4.0.0"
   },
   "jsnext:main": "src/js/index.js",
   "engines": {
     "node": ">=4.4.0"
   },
   "generator-videojs-plugin": {
-    "version": "3.1.1"
+    "version": "3.2.0"
   },
   "spellbook": {
     "lang": false,
