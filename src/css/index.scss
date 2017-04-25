@@ -1,6 +1,7 @@
 $browser-context: 16;
 
 @function em($pixels, $context: $browser-context) {
+
   @return #{$pixels/$context}em;
 }
 
@@ -21,6 +22,7 @@ $browser-context: 16;
     pointer-events: none;
     position: absolute;
     top: 0;
+
     @include transition(opacity 0.1s);
   }
 
@@ -30,9 +32,7 @@ $browser-context: 16;
     width: 100%;
 
     // Adopt some core styles from .vjs-modal-dialog from video.js
-    background: rgba(0, 0, 0, 0.8);
-    background: -webkit-linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 30%, rgba(0,0,0,.7) 70%, rgba(0,0,0,0) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 30%, rgba(0,0,0,.7) 70%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%);
     padding: 1em $shelf-width 2em 1em;
   }
 
@@ -75,6 +75,7 @@ $browser-context: 16;
 .vjs-playing.vjs-user-inactive .vjs-dock-text,
 .vjs-playing.vjs-user-inactive .vjs-dock-shelf {
   opacity: 0;
+
   @include transition(opacity 1s);
 }
 
