@@ -1,5 +1,5 @@
 let guid = 1;
-let newGuid = function newGuid() {
+const newGuid = function newGuid() {
   return guid++;
 };
 
