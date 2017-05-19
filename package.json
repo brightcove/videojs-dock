@@ -1,6 +1,6 @@
 {
   "name": "videojs-dock",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Dock plugin for videojs",
   "main": "dist/videojs-dock.cjs.js",
   "keywords": [
