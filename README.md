@@ -1,8 +1,15 @@
 # videojs-dock
 
+[![Build Status](https://travis-ci.org/brightcove/videojs-dock.svg?branch=master)](https://travis-ci.org/brightcove/videojs-dock)
+[![Greenkeeper badge](https://badges.greenkeeper.io/brightcove/videojs-dock.svg)](https://greenkeeper.io/)
+[![Slack Status](http://slack.videojs.com/badge.svg)](http://slack.videojs.com)
+
+[![NPM](https://nodei.co/npm/videojs-dock.png?downloads=true&downloadRank=true)](https://nodei.co/npm/videojs-dock/)
+
 A dock for videojs
 
-### Table of Contents
+Maintenance Status: Stable
+
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
