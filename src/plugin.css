@@ -1,0 +1,71 @@
+.video-js .vjs-dock-text,
+.video-js .vjs-dock-shelf {
+  font-size: 1.8em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transition: opacity 0.1s;
+  -moz-transition: opacity 0.1s;
+  -o-transition: opacity 0.1s;
+  transition: opacity 0.1s;
+}
+
+.video-js .vjs-dock-text {
+  left: 0;
+  margin: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0) 100%);
+  padding: 1em 25% 2em 1em;
+}
+
+.video-js.vjs-no-flex .vjs-dock-text {
+  padding-bottom: 1em;
+}
+
+.video-js .vjs-dock-shelf {
+  padding: 1em 1em;
+  right: 0;
+  text-align: right;
+  width: 25%;
+}
+
+.video-js .vjs-dock-shelf * {
+  pointer-events: auto;
+}
+
+.video-js .vjs-dock-title,
+.video-js .vjs-dock-description {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.video-js .vjs-dock-title {
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.333;
+  margin-bottom: 0.333em;
+}
+
+.video-js .vjs-dock-description {
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.vjs-playing.vjs-user-inactive .vjs-dock-text,
+.vjs-playing.vjs-user-inactive .vjs-dock-shelf {
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-text,
+.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-shelf {
+  display: none;
+}
