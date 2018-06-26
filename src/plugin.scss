@@ -1,0 +1,84 @@
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+@mixin transition($string: $transition--default) {
+  -webkit-transition: $string;
+  -moz-transition: $string;
+  -o-transition: $string;
+  transition: $string;
+}
+
+.video-js {
+  $shelf-width: 25%;
+
+  .vjs-dock-text,
+  .vjs-dock-shelf {
+    font-size: em(18, 10);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    @include transition(opacity 0.1s);
+  }
+
+  .vjs-dock-text {
+    left: 0;
+    margin: 0;
+    width: 100%;
+
+    // Adopt some core styles from .vjs-modal-dialog from video.js
+    background: rgba(0, 0, 0, 0.8);
+    background: -webkit-linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 30%, rgba(0,0,0,.7) 70%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,.8) 0%, rgba(0,0,0,.7) 30%, rgba(0,0,0,.7) 70%, rgba(0,0,0,0) 100%);
+    padding: 1em $shelf-width 2em 1em;
+  }
+
+  &.vjs-no-flex .vjs-dock-text {
+    padding-bottom: 1em;
+  }
+
+  .vjs-dock-shelf {
+    padding: 1em 1em;
+    right: 0;
+    text-align: right;
+    width: $shelf-width;
+
+    * {
+      pointer-events: auto;
+    }
+  }
+
+  .vjs-dock-title,
+  .vjs-dock-description {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .vjs-dock-title {
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 1.333; // 20px
+    margin-bottom: 0.333em; // 5px
+  }
+
+  .vjs-dock-description {
+    font-weight: normal;
+    line-height: 1.5; // 18px
+  }
+}
+
+.vjs-playing.vjs-user-inactive .vjs-dock-text,
+.vjs-playing.vjs-user-inactive .vjs-dock-shelf {
+  opacity: 0;
+  @include transition(opacity 1s);
+}
+
+.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-text,
+.vjs-playing.vjs-no-flex.vjs-user-inactive .vjs-dock-shelf {
+  display: none;
+}
