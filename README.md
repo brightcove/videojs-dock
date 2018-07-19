@@ -1,5 +1,7 @@
 # videojs-dock
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/brightcove/videojs-dock.svg)](https://greenkeeper.io/)
+
 A dock for videojs
 
 ### Table of Contents
