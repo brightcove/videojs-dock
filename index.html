@@ -2,11 +2,10 @@
 <html>
   <head>
     <!--[if IE 8]><script src="http://vjs.zencdn.net/ie8/1.1.0/videojs-ie8.min.js"></script><!--<![endif]-->
-    <link rel='stylesheet' href='node_modules/video.js/dist/video-js.css'></script>
+    <link rel='stylesheet' href='node_modules/video.js/dist/video-js.css'>
     <script src='node_modules/video.js/dist/video.js'></script>
-    <script src="node_modules/es5-shim/es5-shim.js"></script>
 
-    <!-- include the playlist plugin -->
+    <!-- include the plugin -->
     <script src='dist/videojs-dock.js'></script>
     <link rel='stylesheet' href='dist/videojs-dock.css'>
 
@@ -31,6 +30,10 @@
     >
       <source src='http://vjs.zencdn.net/v/oceans.mp4' type='video/mp4' >
     </video>
+
+    <ul>
+      <li><a href="/test/debug.html">Run unit tests in browser.</a></li>
+    </ul>
 
     <script>
     var video = document.querySelector('video');
