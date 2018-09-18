@@ -1,3 +1,10 @@
+<a name="2.1.4"></a>
+## [2.1.4](https://github.com/brightcove/videojs-dock/compare/v2.1.3...v2.1.4) (2018-09-18)
+
+### Bug Fixes
+
+* export the version on the plugin ([#30](https://github.com/brightcove/videojs-dock/issues/30)) ([5d3c3ea](https://github.com/brightcove/videojs-dock/commit/5d3c3ea))
+
 <a name="2.1.3"></a>
 ## [2.1.3](https://github.com/brightcove/videojs-dock/compare/v2.1.2...v2.1.3) (2018-09-12)
 
