@@ -1,6 +1,7 @@
 import document from 'global/document';
 import videojs from 'video.js';
 import guid from './guid.js';
+import {version as VERSION} from '../package.json';
 
 const dom = videojs.dom || videojs;
 const registerPlugin = videojs.registerPlugin || videojs.plugin;
@@ -117,6 +118,8 @@ const dock = function(options) {
     this.shelf = null;
   });
 };
+
+dock.VERSION = VERSION;
 
 // Register the plugin with video.js.
 registerPlugin('dock', dock);
