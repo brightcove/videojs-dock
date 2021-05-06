@@ -95,28 +95,33 @@ const dock = function(options) {
 
   this.addClass('vjs-dock');
 
-  const bpbIndex = this.children().indexOf(this.getChild('bigPlayButton'));
-  const index = bpbIndex > 0 ? bpbIndex - 1 : null;
+  // If dock is initalized as part of player options, the player won't be ready
+  // and the dock items will be hidden by the poster image when it's created.
+  // In those cases, wait for player ready.
+  this.ready(() => {
+    const bpbIndex = this.children().indexOf(this.getChild('bigPlayButton'));
+    const index = bpbIndex > 0 ? bpbIndex - 1 : null;
 
-  // add shelf first so `title` is added before it if available
-  // because shelf will now be at index
-  if (!shelf) {
-    shelf = this.shelf = this.addChild('shelf', settings, index);
-  }
+    // add shelf first so `title` is added before it if available
+    // because shelf will now be at index
+    if (!shelf) {
+      shelf = this.shelf = this.addChild('shelf', settings, index);
+    }
 
-  if (!title) {
-    title = this.title = this.addChild('title', settings.title, index);
-  } else {
-    title.update(settings.title.title, settings.title.description);
-  }
+    if (!title) {
+      title = this.title = this.addChild('title', settings.title, index);
+    } else {
+      title.update(settings.title.title, settings.title.description);
+    }
 
-  this.one(title, 'dispose', function() {
-    this.title = null;
-  });
+    this.one(title, 'dispose', function() {
+      this.title = null;
+    });
 
-  this.one(shelf, 'dispose', function() {
-    this.shelf = null;
-  });
+    this.one(shelf, 'dispose', function() {
+      this.shelf = null;
+    });
+  }, true);
 };
 
 dock.VERSION = VERSION;
