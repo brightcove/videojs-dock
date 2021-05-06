@@ -121,7 +121,7 @@ const dock = function(options) {
     this.one(shelf, 'dispose', function() {
       this.shelf = null;
     });
-  });
+  }, true);
 };
 
 dock.VERSION = VERSION;
