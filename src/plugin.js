@@ -121,6 +121,17 @@ const dock = function(options) {
     this.one(shelf, 'dispose', function() {
       this.shelf = null;
     });
+
+    const titleId = title.title.id;
+    const descriptionId = title.description.id;
+
+    if (titleId) {
+      this.setAttribute('aria-labelledby', titleId);
+    }
+
+    if (descriptionId) {
+      this.setAttribute('aria-describedby', descriptionId);
+    }
   }, true);
 };
 
