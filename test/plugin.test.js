@@ -56,3 +56,25 @@ QUnit.test('registers itself with video.js', function(assert) {
     'the plugin adds a class to the player'
   );
 });
+
+QUnit.test('adds aria attributes', function(assert) {
+  assert.expect(2);
+
+  this.player.dock({
+    title: 'Test Title',
+    description: 'Test description.'
+  });
+
+  // Tick the clock forward enough to trigger the player to be "ready".
+  this.clock.tick(1);
+
+  assert.ok(
+    this.player.getAttribute('aria-labelledby').includes('vjs-dock-title'),
+    'the plugin adds an aria-labelledby to the player based on title ID'
+  );
+
+  assert.ok(
+    this.player.getAttribute('aria-describedby').includes('vjs-dock-description'),
+    'the plugin adds an aria-describedby to the player based on description ID'
+  );
+});
