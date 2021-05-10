@@ -125,14 +125,16 @@ const dock = function(options) {
     // Update aria attributes to describe video content if title
     // and description IDs are available. If unavailable, accessibility
     // landmark can fall back to generic `Video Player` label.
-    const titleId = title.title.id;
-    const descriptionId = title.description.id;
+    const titleEl = title.title;
+    const descriptionEl = title.description;
+    const titleId = titleEl.id;
+    const descriptionId = descriptionEl.id;
 
-    if (titleId) {
+    if (titleId && titleEl.innerText) {
       this.setAttribute('aria-labelledby', titleId);
     }
 
-    if (descriptionId) {
+    if (descriptionId && descriptionEl.innerText) {
       this.setAttribute('aria-describedby', descriptionId);
     }
   }, true);
