@@ -123,7 +123,7 @@ const dock = function(options) {
     });
 
     // Update aria attributes to describe video content if title
-    // and description IDs are available. If unavailable, accessibility
+    // and description IDs are present. If unavailable, accessibility
     // landmark can fall back to generic `Video Player` label.
     const titleEl = title.title;
     const descriptionEl = title.description;
