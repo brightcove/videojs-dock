@@ -122,9 +122,9 @@ const dock = function(options) {
       this.shelf = null;
     });
 
-    // Update aria attributes to describe video content if title
-    // and description IDs are present. If unavailable, accessibility
-    // landmark can fall back to generic `Video Player` label.
+    // Update aria attributes to describe video content if title/description
+    // IDs and inner text are present. If unavailable, accessibility
+    // landmark can fall back to generic `Video Player` aria-label.
     const titleEl = title.title;
     const descriptionEl = title.description;
     const titleId = titleEl.id;
