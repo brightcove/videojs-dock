@@ -131,7 +131,7 @@ const dock = function(options) {
     const descriptionId = descriptionEl.id;
 
     if (titleId && titleEl.textContent) {
-      this.setAttribute('aria-labelledby', titleId);
+      this.setAttribute('aria-labelledby', this.id() + ' ' + titleId);
     }
 
     if (descriptionId && descriptionEl.textContent) {
