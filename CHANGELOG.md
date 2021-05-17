@@ -1,3 +1,20 @@
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/brightcove/videojs-dock/compare/v2.1.4...v2.2.0) (2021-05-17)
+
+### Features
+
+* add player labelledBy and describedBy aria based on title and description elements ([#69](https://github.com/brightcove/videojs-dock/issues/69)) ([7c1e7ba](https://github.com/brightcove/videojs-dock/commit/7c1e7ba))
+
+### Bug Fixes
+
+* create elements on player ready ([#66](https://github.com/brightcove/videojs-dock/issues/66)) ([2aae663](https://github.com/brightcove/videojs-dock/commit/2aae663)), closes [#54](https://github.com/brightcove/videojs-dock/issues/54)
+* keep player's label in labelledby list ([#70](https://github.com/brightcove/videojs-dock/issues/70)) ([b585d71](https://github.com/brightcove/videojs-dock/commit/b585d71))
+
+### Chores
+
+* **nvmrc:** update * to fermium ([#60](https://github.com/brightcove/videojs-dock/issues/60)) ([7ec04de](https://github.com/brightcove/videojs-dock/commit/7ec04de))
+* **package:** update npm-run-all/videojs-generator-verify for security ([57bee79](https://github.com/brightcove/videojs-dock/commit/57bee79))
+
 <a name="2.1.4"></a>
 ## [2.1.4](https://github.com/brightcove/videojs-dock/compare/v2.1.3...v2.1.4) (2018-09-18)
 
