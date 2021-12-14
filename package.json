@@ -38,7 +38,7 @@
     "watch:css": "npm run build:css -- -w",
     "watch:js": "npm run build:js -- -w",
     "posttest": "shx cat test/dist/coverage/text.txt",
-    "prepublishOnly": "npm run build && vjsverify"
+    "prepublishOnly": "npm run build && vjsverify --skip-es-check"
   },
   "vjsstandard": {
     "ignore": [
@@ -79,7 +79,7 @@
     "videojs-generate-karma-config": "~5.0.0",
     "videojs-generate-postcss-config": "^2.1.1",
     "videojs-generate-rollup-config": "^7.0.0",
-    "videojs-generator-verify": "^1.2.0",
+    "videojs-generator-verify": "^4.0.1",
     "videojs-standard": "~8.0.1"
   },
   "lint-staged": {
