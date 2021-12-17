@@ -1,3 +1,18 @@
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/brightcove/videojs-dock/compare/v2.2.0...v3.0.0) (2021-12-17)
+
+### Chores
+
+* Update generate-rollup-config to drop older browser support ([#77](https://github.com/brightcove/videojs-dock/issues/77)) ([e862def](https://github.com/brightcove/videojs-dock/commit/e862def))
+* update other dependencies ([#125](https://github.com/brightcove/videojs-dock/issues/125)) ([deaa9d8](https://github.com/brightcove/videojs-dock/commit/deaa9d8))
+
+
+### BREAKING CHANGES
+
+* update build to no longer support IE11 and other older browsers.
+
+Co-authored-by: Alex Barstow <abarstow@brightcove.com>
+
 <a name="2.2.0"></a>
 # [2.2.0](https://github.com/brightcove/videojs-dock/compare/v2.1.4...v2.2.0) (2021-05-17)
 
